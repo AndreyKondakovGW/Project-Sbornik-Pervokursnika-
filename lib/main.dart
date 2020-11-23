@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sbornik_pervokursnika/data/SignInForm/siginform.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sbornik_pervokursnika/data/SignInForm/bloc/sigininblock_bloc.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,6 +22,7 @@ class MyApp extends StatelessWidget {
           title: Text("title"),
         ),
         body: Center(
+
           /*TODO во отдельном классе создать виджет который вы выбрали для работы над
           для отображения просто замените строчку child: Text("Prject App"),  на child: MyWidget(),
           Состояния виджетов следует хранить в отдельных файлах как это было обговоренно на собрании.
@@ -30,7 +34,11 @@ class MyApp extends StatelessWidget {
             4)Виджет Профиля студента/факультета (попыться сделать их едино образно)
             5)Виджет Отображения статьи из сборника
           */
-          child: Text("Prject App"),
+          child: BlocProvider(
+            create: (context) => SigininCubit(),
+            child: LoginForm(),
+          )
+          
         ),
       ),
     );
