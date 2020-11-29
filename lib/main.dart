@@ -1,38 +1,66 @@
 import 'package:flutter/material.dart';
+// import 'package:Pro/post.dart';
+// import 'package:posts_feed/postswidget.dart';
+// import 'package:posts_feed/postrepo.dart';
+
+import 'postrepo.dart';
+import 'postswidget.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final title = 'Лента';
+
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      title: title,
       home: Scaffold(
+        //backgroundColor: ,
+
         appBar: AppBar(
-          title: Text("title"),
+          title: Text('ЛЕНТА'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search, size: 30),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            )
+          ],
+          backgroundColor: Colors.blue,
         ),
         body: Center(
-          /*TODO во отдельном классе создать виджет который вы выбрали для работы над
-          для отображения просто замените строчку child: Text("Prject App"),  на child: MyWidget(),
-          Состояния виджетов следует хранить в отдельных файлах как это было обговоренно на собрании.
-          Список Виджетов для работы над:
-            1)Виджет Поста из ленты (Пока будем отображать с помощью ListView)
-            Пример child: ListView(children: Posts.map((post) => PostWidget(post)).toList(),),
-            2)Виджет Разделов Сборника первокурсника
-            3)Виджет Списка подразделов Сборника
-            4)Виджет Профиля студента/факультета (попыться сделать их едино образно)
-            5)Виджет Отображения статьи из сборника
-          */
-          child: Text("Prject App"),
+          child: Container(
+            decoration: BoxDecoration(
+              // gradient: LinearGradient(
+              //     begin: Alignment.topCenter,
+              //     end: Alignment.bottomCenter,
+              //     colors: [
+              //       Color.fromRGBO(89, 31, 129, 10),
+              //       //Color.fromRGBO(0, 0, 0, 10),
+              //       Color.fromRGBO(0, 0, 0, 10),
+              //     ]),
+              color: Colors.black,
+            ),
+            child: ListView(
+              children: [
+                Column(
+                  //crossAxisCount: 1,
+                  children: containers,
+                  mainAxisSize: MainAxisSize.min,
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
+
+  var containers = posts.map((post) => PostWidget(post)).toList();
 }
