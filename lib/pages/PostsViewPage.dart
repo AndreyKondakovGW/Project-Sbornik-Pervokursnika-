@@ -3,9 +3,9 @@ import 'package:sbornik_pervokursnika/data/models/ListItem.dart';
 
 var Mass = [
   ListItem(text: 'Промежуточная аттестация', route: '/attestat'),
-  ListItem(text: 'Учебный план', route: '/attestat'),
-  ListItem(text: 'Промежуточная аттестация', route: '/attestat'),
-  ListItem(text: 'Промежуточная аттестация', route: '/attestat')
+  ListItem(text: 'Учебный год', route: '/study_plan'),
+  ListItem(text: 'Права и обязанности студентов', route: '/prava_i_onbazonost'),
+  ListItem(text: 'Академический отпуск', route: '/academ_otpysk')
 ];
 
 class SbornikPage extends StatelessWidget {
