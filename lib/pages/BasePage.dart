@@ -18,7 +18,7 @@ class _NavPageState extends State<NavPage>
 
 
   final titels = [
-    "Сборник",
+    "Сборник первокурсника",
     "Избраное",
     "Лента",
     "Профиль",
