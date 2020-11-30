@@ -15,6 +15,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/home',
       routes: {
         '/login':(BuildContext context) => LoginRegestrationPage(),
+        '/attestat':(BuildContext context) => NavPage(),
+        '/study_plan':(BuildContext context) => NavPage(),
+        '/prava_i_onbazonost':(BuildContext context) => NavPage(),
+        '/academ_otpysk':(BuildContext context) => NavPage(),
 
         '/home':(BuildContext context) => NavPage(),
       },

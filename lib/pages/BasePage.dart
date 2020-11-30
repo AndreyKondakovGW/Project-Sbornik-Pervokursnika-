@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sbornik_pervokursnika/pages/LentaPage.dart';
 import 'ProfilePage.dart';
-import 'SbornikPage.dart';
+import 'PostsViewPage.dart';
 import 'FacultiesPage.dart';
 import 'FavoritesPage.dart';
 
