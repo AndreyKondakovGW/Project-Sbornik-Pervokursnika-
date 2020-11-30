@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sbornik_pervokursnika/data/bloc/formblock_bloc.dart';
+import 'package:sbornik_pervokursnika/data/SignFormblock/formblock_bloc.dart';
 import 'package:sbornik_pervokursnika/data/models/LoginadnRegestrationmodels/FormInput.dart';
 import 'package:sbornik_pervokursnika/data/signrepo.dart';
 
