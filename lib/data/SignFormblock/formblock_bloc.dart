@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import 'dart:async';
 
 import 'package:sbornik_pervokursnika/data/signrepo.dart';
-import 'package:sbornik_pervokursnika/data/model/FormInput.dart';
+import 'package:sbornik_pervokursnika/data/models/LoginadnRegestrationmodels/FormInput.dart';
 part 'formblock_state.dart';
 part 'formblock_event.dart';
 

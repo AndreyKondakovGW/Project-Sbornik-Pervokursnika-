@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 import 'dart:async';
 
-import 'package:sbornik_pervokursnika/data/model/User.dart';
+import 'package:sbornik_pervokursnika/data/models/LoginadnRegestrationmodels/User.dart';
 
 User currentuser = null;
 

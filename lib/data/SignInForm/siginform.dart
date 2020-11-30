@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sbornik_pervokursnika/data/bloc/formblock_bloc.dart';
-import 'package:sbornik_pervokursnika/data/model/FormInput.dart';
+import 'package:sbornik_pervokursnika/data/models/LoginadnRegestrationmodels/FormInput.dart';
 import 'package:sbornik_pervokursnika/data/signrepo.dart';
 
 class LoginForm extends StatelessWidget {
@@ -16,7 +16,7 @@ class LoginForm extends StatelessWidget {
       listener: (context, state) {
         if (currentuser != null)
         {
-          Navigator.pushNamed(context, '/home');
+          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
         }
       },
       builder: (context, state) {
