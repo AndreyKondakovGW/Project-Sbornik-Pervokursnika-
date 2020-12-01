@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(initialRoute: '/login', routes: {
       '/login': (BuildContext context) => LoginRegestrationPage(),
       '/home': (BuildContext context) => NavPage(),
-      '/lenta': (BuildContext context) => LentaPage(),
       "/block/0": (BuildContext context) => SbornikPage(),
       "/block/1": (BuildContext context) => articlesarrwidget[0],
       "/block/2": (BuildContext context) => articlesarrwidget[1],
@@ -28,13 +27,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Sbornik
-//       },
-//       title: 'Сборник первокурсника',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//         visualDensity: VisualDensity.adaptivePlatformDensity,
-//       ),
-//     );
-//   }
-// }

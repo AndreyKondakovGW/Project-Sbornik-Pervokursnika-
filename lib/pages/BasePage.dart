@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sbornik_pervokursnika/pages/LentaPage.dart';
+import 'package:sbornik_pervokursnika/pages/SbornikPageMenu.dart';
 import 'ProfilePage.dart';
 import 'PostsViewPage.dart';
 import 'FacultiesPage.dart';
@@ -32,7 +33,7 @@ class _NavPageState extends State<NavPage> {
   ];
 
   final children = [
-    SbornikPage(),
+    SbornikMenuPage(),
     FavoritesPage(),
     LentaPage(),
     ProfilePage(),

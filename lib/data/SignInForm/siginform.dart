@@ -26,7 +26,10 @@ class LoginForm extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      state.errorrequest ? Text(state.errortext) : Container()
+                      state.errorrequest
+                          ? Text(state.errortext,
+                              style: TextStyle(color: Colors.red, fontSize: 16))
+                          : Container()
                     ],
                   ),
                   //Инпут для Логина
