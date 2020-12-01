@@ -16,8 +16,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (BuildContext context) => LoginRegestrationPage(),
-        '/home': (BuildContext context) => LentaPage(),
-        'lenta': (BuildContext context) => LentaPage(),
+        '/home': (BuildContext context) => SbornikPage(),
+        '/lenta': (BuildContext context) => LentaPage(),
+        "/block/0": (BuildContext context) => articlesarrwidget[0],
+        "/block/1": (BuildContext context) => articlesarrwidget[1],
+        "/block/2": (BuildContext context) => articlesarrwidget[2],
       },
       title: 'Сборник первокурсника',
       theme: ThemeData(
