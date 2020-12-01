@@ -42,8 +42,12 @@ class _NavPageState extends State<NavPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25))),
         title: Text(titels[currentIdex]),
       ),
       body: children[currentIdex],

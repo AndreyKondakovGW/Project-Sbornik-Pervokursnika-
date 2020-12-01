@@ -42,12 +42,7 @@ var newarticles = [
         Студент может пройти промежуточную аттестацию по предмету не в установленный срок при наличии уважительной причины и подтверждающего документа
         По результату сессии, при условии оценок только "4" и "5" и всеми зачетами, студенту, обучающемуся за счет бюджетных ассигнований, назначается академическая стипендия''',
     image1: 'assets/images/study.jpg',
-  ),
-  Article(
-    title: 'ПРАВА И ОБЯЗАННОСТИ СТУДЕНТА',
-    text: '''  
-        ''',
-    image1: 'assets/images/prava.jpg',
+    image2: 'assets/images/stipendii.jpg',
   ),
   Article(
     title: 'УЧЕБНЫЙ ГОД',
@@ -59,6 +54,14 @@ var newarticles = [
         Перерыв после первого занятия - 15 минут, после второго  - 30 минут.
         ''',
     image1: 'assets/images/stipendii.jpg',
+    image2: 'assets/images/brs.jpg',
+  ),
+  Article(
+    title: 'ПРАВА И ОБЯЗАННОСТИ СТУДЕНТА',
+    text: '''  
+        ''',
+    image1: 'assets/images/prava.jpg',
+    image2: 'assets/images/stipendii.jpg',
   ),
   Article(
     title: 'АКАДЕМИЧЕСКИЙ ОТПУСК',
@@ -72,5 +75,6 @@ var newarticles = [
         Академический отпуск предоставляется неограниченное количество раз.
         ''',
     image1: 'assets/images/otpusk.jpg',
+    image2: 'assets/images/brs.jpg',
   ),
 ];

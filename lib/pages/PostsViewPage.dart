@@ -11,10 +11,11 @@ var Mass = [
 class SbornikPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-          children: Mass.map((listItem) => ListItemWidget(listItem)).toList()),
-    );
+    return Container(
+        padding: EdgeInsets.all(25),
+        child: Column(
+          children: Mass.map((listItem) => ListItemWidget(listItem)).toList(),
+        ));
   }
 }
 
@@ -24,8 +25,14 @@ class ListItemWidget extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => {Navigator.pushNamed(context, data.route)},
-      child: Container(child: Text(data.text), color: Colors.yellow),
-    );
+        onTap: () => {Navigator.pushNamed(context, data.route)},
+        child: Row(
+            //mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                  padding: EdgeInsets.all(20),
+                  child: Text(data.text),
+                  color: Colors.blue),
+            ]));
   }
 }

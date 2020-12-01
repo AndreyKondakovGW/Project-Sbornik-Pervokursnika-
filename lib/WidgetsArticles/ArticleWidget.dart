@@ -11,10 +11,14 @@ class ArticleWidget extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(25),
+                    bottomRight: Radius.circular(25))),
             title: Text(article.title,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ))),
         body: ListView(children: [
