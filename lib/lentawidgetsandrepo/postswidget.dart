@@ -8,7 +8,6 @@ class PostWidget extends StatelessWidget {
   PostWidget(this.post);
   @override
   Widget build(BuildContext context) {
-    //final title = 'Лента';
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),

@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:sbornik_pervokursnika/WidgetsArticles/ArticleWidget.dart';
-import 'package:sbornik_pervokursnika/WidgetsArticles/articlesrepo.dart';
-import 'package:sbornik_pervokursnika/lentawidgetsandrepo/blockrepo.dart';
-import 'package:sbornik_pervokursnika/lentawidgetsandrepo/blockswidget.dart';
 
-// class SbornikPage extends StatelessWidget
-// {
+import '../WidgetsArticles/ArticleWidget.dart';
+import '../WidgetsArticles/articlesrepo.dart';
+import '../lentawidgetsandrepo/blockrepo.dart';
+import '../lentawidgetsandrepo/blockswidget.dart';
 
-//   @override
-//   Widget build(BuildContext context){
-//     return Center(
-//         child: Text("Сборник"),
-//     );
-//   }
-// }
-class SbornikPage extends StatelessWidget {
+void main() {
+  runApp(MyApp());
+}
+
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +23,7 @@ class SbornikPage extends StatelessWidget {
       body: Center(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 5, vertical: 50),
-          child: StaggeredGridView.countBuilder(
+          child: new StaggeredGridView.countBuilder(
             crossAxisCount: 3,
             itemCount: 9,
             itemBuilder: (BuildContext context, int index) =>
@@ -48,7 +43,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(initialRoute: '/home', routes: {
-      //"/home": (BuildContext context) => HomePage(),
+      "/home": (BuildContext context) => HomePage(),
       "/block/0": (BuildContext context) => articlesarrwidget[0],
       "/block/1": (BuildContext context) => articlesarrwidget[1],
       "/block/2": (BuildContext context) => articlesarrwidget[2],
