@@ -5,7 +5,7 @@ import 'package:sbornik_pervokursnika/WidgetsArticles/articlesrepo.dart';
 import 'package:sbornik_pervokursnika/lentawidgetsandrepo/blockrepo.dart';
 import 'package:sbornik_pervokursnika/lentawidgetsandrepo/blockswidget.dart';
 
-class SbornikPage extends StatelessWidget {
+class SbornikMenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,26 +29,6 @@ class SbornikPage extends StatelessWidget {
           ),
         ),
       ),
-
-//   Widget build(BuildContext context){
-//     return Center(
-//       child: Text("Сборник"),
-// >>>>>>> Sbornik
-//     );
-//   }
-// }
-
-// class MyApp extends StatelessWidget {
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(initialRoute: '/home', routes: {
-//       //"/home": (BuildContext context) => HomePage(),
-//       "/block/0": (BuildContext context) => articlesarrwidget[0],
-//       "/block/1": (BuildContext context) => articlesarrwidget[1],
-//       "/block/2": (BuildContext context) => articlesarrwidget[2],
-//     });
-//   }
     );
   }
 }

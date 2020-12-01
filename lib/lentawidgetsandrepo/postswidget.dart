@@ -8,7 +8,6 @@ class PostWidget extends StatelessWidget {
   PostWidget(this.post);
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
