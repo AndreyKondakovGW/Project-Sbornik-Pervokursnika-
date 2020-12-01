@@ -6,16 +6,14 @@ import 'FacultiesPage.dart';
 import 'FavoritesPage.dart';
 
 //Виджет с навбаром
-class NavPage extends StatefulWidget
-{
-  @override _NavPageState createState() => _NavPageState();
+class NavPage extends StatefulWidget {
+  @override
+  _NavPageState createState() => _NavPageState();
 }
 
-class _NavPageState extends State<NavPage>
-{
+class _NavPageState extends State<NavPage> {
   int currentIdex = 0;
   _NavPageState();
-
 
   final titels = [
     "Сборник первокурсника",
@@ -38,52 +36,52 @@ class _NavPageState extends State<NavPage>
     FavoritesPage(),
     LentaPage(),
     ProfilePage(),
-    FacultiesPage(),   
+    FacultiesPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-      title: Text(titels[currentIdex]),
-    ),
-    body: children[currentIdex],
-    bottomNavigationBar: BottomNavigationBar
-    (
-      currentIndex: currentIdex,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.book),
-          label: "Сборник",
-          backgroundColor: Colors.blueAccent,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.star),
-          label: "Избраное",
-          backgroundColor: Colors.blueAccent,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.note),
-          label: "Лента",
-          backgroundColor: Colors.blueAccent,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.portrait),
-          label: "Профиль",
-          backgroundColor: Colors.blueAccent,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_filled),
-          label: "Факультет",
-          backgroundColor: Colors.blueAccent,
-        ),
-      ],
-      onTap: (index){
-        setState(() {
-          currentIdex = index;
-        });
-      },
-    ),
-  );
+      appBar: AppBar(
+        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        title: Text(titels[currentIdex]),
+      ),
+      body: children[currentIdex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIdex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: "Сборник",
+            backgroundColor: Colors.blueAccent,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: "Избраное",
+            backgroundColor: Colors.blueAccent,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.note),
+            label: "Лента",
+            backgroundColor: Colors.blueAccent,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.portrait),
+            label: "Профиль",
+            backgroundColor: Colors.blueAccent,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_filled),
+            label: "Факультет",
+            backgroundColor: Colors.blueAccent,
+          ),
+        ],
+        onTap: (index) {
+          setState(() {
+            currentIdex = index;
+          });
+        },
+      ),
+    );
   }
 }

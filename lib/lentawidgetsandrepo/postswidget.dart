@@ -92,7 +92,6 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
       Container(
         margin: const EdgeInsets.only(bottom: 15, right: 10, left: 260),
         child: IconButton(
-          // tooltip: 'В избранном',
           icon: (_isFavorited
               ? Icon(Icons.star, size: 25)
               : Icon(Icons.star_border, size: 25)),
@@ -100,13 +99,6 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
           color: Colors.white,
         ),
       ),
-      // SizedBox(
-      //   height: 25,
-      //   child: Container(
-      //     padding: EdgeInsets.only(right: 10, r),
-      //     child: Text('В избранное'),
-      //   ),
-      // ),
     ]);
   }
 
