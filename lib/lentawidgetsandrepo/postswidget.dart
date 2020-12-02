@@ -32,7 +32,9 @@ class PostWidget extends StatelessWidget {
             ),
           ),
           Container(
-            decoration: BoxDecoration(color: Colors.white12),
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(100, 149, 237, 20).withOpacity(0.4),
+            ),
             child: Column(
               children: [
                 Container(
@@ -41,6 +43,7 @@ class PostWidget extends StatelessWidget {
                     post.title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                        fontFamily: 'Tahoma',
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
@@ -52,6 +55,7 @@ class PostWidget extends StatelessWidget {
                     post.text,
                     textAlign: TextAlign.left,
                     style: TextStyle(
+                        fontFamily: 'Tahoma',
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
                         color: Colors.white),
@@ -66,7 +70,7 @@ class PostWidget extends StatelessWidget {
             height: 34,
             child: FavouriteWidget(),
             decoration: BoxDecoration(
-              color: Colors.white12,
+              color: Color.fromRGBO(100, 149, 237, 20).withOpacity(0.4),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(25.0),
                 bottomRight: Radius.circular(25.0),

@@ -8,7 +8,7 @@ class FacultiesPage extends StatelessWidget {
       Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
         Container(
           margin: EdgeInsets.only(top: 15, left: 15, right: 15),
-          height: 100,
+          height: 180,
           decoration: BoxDecoration(
               image: DecorationImage(
                 image: Image.asset('assets/images/mmcs.jpg').image,
@@ -17,26 +17,28 @@ class FacultiesPage extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(25))),
         ),
         Container(
-          margin: EdgeInsets.all(15),
-          decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.all(Radius.circular(25))),
-          child: Align(
-              alignment: Alignment.centerLeft,
+            margin: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.all(Radius.circular(25))),
+            child: Container(
+              //padding: EdgeInsets.all(5),
               child: Container(
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.only(right: 10, left: 10),
                 child: Text(
                     'Мой факультет: Институт математики, механики и компьютерных наук',
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                        fontFamily: 'Tahoma',
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.white)),
-              )),
-        ),
+              ),
+            )),
         Container(
-            margin: EdgeInsets.all(20),
-            color: Colors.white12,
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
+            color: Color.fromRGBO(100, 149, 237, 20).withOpacity(0.4),
             child: Text(
               '''
        Директор института - Карякин Михаил Игоревич	
@@ -50,7 +52,10 @@ class FacultiesPage extends StatelessWidget {
        Зам. директора по академической политике - Кузнецова Елена Михайловна
        Зам. директора по общим вопросам - Качаева Александра Ивановна
        ''',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
             ))
       ])
     ]);
