@@ -29,7 +29,7 @@ class ArticleWidget extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin:
-                      EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+                      EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 15),
                   height: 400,
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -40,13 +40,19 @@ class ArticleWidget extends StatelessWidget {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(30),
-                          bottomRight: Radius.circular(30))),
+                      borderRadius: BorderRadius.all(Radius.circular(25))),
                   child: Align(
                       alignment: Alignment.center,
                       child: Container(
-                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(100, 149, 237, 20)
+                              .withOpacity(0.4),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(25.0),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(10),
+                        padding: EdgeInsets.all(15),
                         child: Text(article.text,
                             textAlign: TextAlign.left,
                             style: TextStyle(
@@ -57,7 +63,7 @@ class ArticleWidget extends StatelessWidget {
                 ),
                 Container(
                   margin:
-                      EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+                      EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 20),
                   height: 400,
                   decoration: BoxDecoration(
                       image: DecorationImage(

@@ -19,7 +19,7 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                    child: Text('Мои теги',
+                    child: Text('Теги',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
