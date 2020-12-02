@@ -13,12 +13,9 @@ class PostWidget extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            //width: 200,
             height: 15,
           ),
           Container(
-            //padding: EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 10),
-            // width: 300,
             height: 280,
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -92,18 +89,17 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
   bool _isFavorited = false;
   @override
   Widget build(BuildContext context) {
-    return Row(children: <Widget>[
-      Container(
-        margin: const EdgeInsets.only(bottom: 15, right: 10, left: 260),
-        child: IconButton(
-          icon: (_isFavorited
-              ? Icon(Icons.star, size: 25)
-              : Icon(Icons.star_border, size: 25)),
-          onPressed: _tapFavorite,
-          color: Colors.white,
-        ),
+    return Container(
+      alignment: Alignment.bottomRight,
+      //margin: EdgeInsets.only(bottom: 15, right: 10, left: 260),
+      child: IconButton(
+        icon: (_isFavorited
+            ? Icon(Icons.star, size: 25)
+            : Icon(Icons.star_border, size: 25)),
+        onPressed: _tapFavorite,
+        color: Colors.white,
       ),
-    ]);
+    );
   }
 
   void _tapFavorite() {

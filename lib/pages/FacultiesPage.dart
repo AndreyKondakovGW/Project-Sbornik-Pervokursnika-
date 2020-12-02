@@ -26,7 +26,7 @@ class FacultiesPage extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(right: 10, left: 10),
                 child: Text(
-                    'Мой факультет: Институт математики, механики и компьютерных наук',
+                    'Мой факультет: Институт математики, механики и компьютерных наук ЮФУ',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontFamily: 'Tahoma',
@@ -38,7 +38,12 @@ class FacultiesPage extends StatelessWidget {
         Container(
             margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(10),
-            color: Color.fromRGBO(100, 149, 237, 20).withOpacity(0.4),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+              color: Color.fromRGBO(100, 149, 237, 20).withOpacity(0.4),
+            ),
             child: Text(
               '''
        Директор института - Карякин Михаил Игоревич	

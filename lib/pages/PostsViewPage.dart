@@ -14,13 +14,14 @@ class SbornikPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+          backgroundColor: Color.fromRGBO(100, 149, 237, 30),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(25),
                   bottomRight: Radius.circular(25))),
           title: Text('Сборник первокурсника',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold))),
+              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold))),
       body: Container(
           color: Colors.black,
           padding: EdgeInsets.all(25),
@@ -38,17 +39,42 @@ class ListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 20),
+        Icon(Icons.arrow_forward),
+        SizedBox(height: 15),
         InkWell(
             onTap: () => {Navigator.pushNamed(context, data.route)},
             child: Row(children: [
               Expanded(
                 child: Container(
-                    padding: EdgeInsets.all(20),
-                    child: Text(data.text),
-                    color: Colors.blue),
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(100, 149, 237, 30),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25))),
+                  padding: EdgeInsets.all(20),
+                  child: Row(children: [
+                    Text(data.text,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16)),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    )
+                  ]),
+                ),
               ),
             ])),
+        Container(
+          decoration: BoxDecoration(
+              color: Color.fromRGBO(100, 149, 237, 120),
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25))),
+          height: 15,
+          //color: Color.fromRGBO(100, 149, 237, 120),
+        )
       ],
     );
   }

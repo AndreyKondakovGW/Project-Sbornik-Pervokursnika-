@@ -27,8 +27,12 @@ class LoginForm extends StatelessWidget {
                   Column(
                     children: [
                       state.errorrequest
-                          ? Text(state.errortext,
-                              style: TextStyle(color: Colors.red, fontSize: 16))
+                          ? Container(
+                              margin: EdgeInsets.only(top: 15, bottom: 10),
+                              child: Text(state.errortext,
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 16)),
+                            )
                           : Container()
                     ],
                   ),
@@ -59,7 +63,7 @@ class LoginForm extends StatelessWidget {
                   ),
 
                   RaisedButton(
-                    color: Colors.blue,
+                    color: Color.fromRGBO(100, 149, 237, 30),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
                     child: const Text(
@@ -77,7 +81,7 @@ class LoginForm extends StatelessWidget {
                   ),
 
                   RaisedButton(
-                      color: Colors.blue,
+                      color: Color.fromRGBO(100, 149, 237, 30),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
                       child: const Text(
@@ -152,10 +156,9 @@ class LoginForm extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   RaisedButton(
-                                      color: Colors.blue,
+                                      color: Color.fromRGBO(100, 149, 237, 30),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(30)),
@@ -173,7 +176,7 @@ class LoginForm extends StatelessWidget {
                                             email: _emailcontroller.text));
                                       }),
                                   RaisedButton(
-                                      color: Colors.blue,
+                                      color: Color.fromRGBO(100, 149, 237, 30),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(30)),
@@ -214,20 +217,26 @@ class InputWiget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.blue,
+        decoration: BoxDecoration(
+            color: Color.fromRGBO(100, 149, 237, 30),
+            borderRadius: BorderRadius.all(Radius.circular(20))),
         child: Column(
           children: [
-            Text(
-              titel,
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
+            Container(
+              margin: EdgeInsets.all(10),
+              child: Text(
+                titel,
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
             ),
             Container(
-              // decoration: BoxDecoration(
-              //     borderRadius: BorderRadius.all(Radius.circular(15))),
-              color: Colors.white,
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              decoration: BoxDecoration(
+                  color: Color.fromRGBO(224, 255, 255, 80),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
               child: Form(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 key: key1,
@@ -235,7 +244,6 @@ class InputWiget extends StatelessWidget {
                   controller: controler,
                   validator: validator,
                   decoration: InputDecoration(
-                    //fillColor: Colors.white,
                     labelText: lable,
                     helperText: '',
                   ),

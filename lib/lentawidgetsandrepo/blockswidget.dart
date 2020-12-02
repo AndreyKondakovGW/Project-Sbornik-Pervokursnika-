@@ -28,7 +28,7 @@ class BlockWidget extends StatelessWidget {
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color.fromRGBO(100, 149, 237, 30),
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30))),
