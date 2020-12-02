@@ -29,7 +29,7 @@ class ArticleWidget extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin:
-                      EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 15),
+                      EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 0),
                   height: 400,
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -63,7 +63,7 @@ class ArticleWidget extends StatelessWidget {
                 ),
                 Container(
                   margin:
-                      EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 20),
+                      EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 15),
                   height: 400,
                   decoration: BoxDecoration(
                       image: DecorationImage(
