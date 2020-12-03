@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:sbornik_pervokursnika/pages/LentaPage.dart';
+import 'package:sbornik_pervokursnika/pages/SbornikPageMenu.dart';
 import 'ProfilePage.dart';
-import 'SbornikPage.dart';
+import 'PostsViewPage.dart';
 import 'FacultiesPage.dart';
 import 'FavoritesPage.dart';
 
 //Виджет с навбаром
-class NavPage extends StatefulWidget
-{
-  @override _NavPageState createState() => _NavPageState();
+class NavPage extends StatefulWidget {
+  @override
+  _NavPageState createState() => _NavPageState();
 }
 
-class _NavPageState extends State<NavPage>
-{
+class _NavPageState extends State<NavPage> {
   int currentIdex = 0;
   _NavPageState();
 
-
   final titels = [
-    "Сборник",
+    "Сборник первокурсника",
     "Избраное",
     "Лента",
     "Профиль",
@@ -34,56 +33,66 @@ class _NavPageState extends State<NavPage>
   ];
 
   final children = [
-    SbornikPage(),
+    SbornikMenuPage(),
     FavoritesPage(),
     LentaPage(),
     ProfilePage(),
-    FacultiesPage(),   
+    FacultiesPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-      title: Text(titels[currentIdex]),
-    ),
-    body: children[currentIdex],
-    bottomNavigationBar: BottomNavigationBar
-    (
-      currentIndex: currentIdex,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.book),
-          label: "Сборник",
-          backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25))),
+        title: Text(titels[currentIdex]),
+      ),
+      body: children[currentIdex],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40), topRight: Radius.circular(25))),
+        child: BottomNavigationBar(
+          currentIndex: currentIdex,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.book),
+              label: "Сборник",
+              backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.star),
+              label: "Избраное",
+              backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.note),
+              label: "Лента",
+              backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.portrait),
+              label: "Профиль",
+              backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled),
+              label: "Факультет",
+              backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+            ),
+          ],
+          onTap: (index) {
+            setState(() {
+              currentIdex = index;
+            });
+          },
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.star),
-          label: "Избраное",
-          backgroundColor: Colors.blueAccent,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.note),
-          label: "Лента",
-          backgroundColor: Colors.blueAccent,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.portrait),
-          label: "Профиль",
-          backgroundColor: Colors.blueAccent,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_filled),
-          label: "Факультет",
-          backgroundColor: Colors.blueAccent,
-        ),
-      ],
-      onTap: (index){
-        setState(() {
-          currentIdex = index;
-        });
-      },
-    ),
-  );
+      ),
+    );
   }
 }

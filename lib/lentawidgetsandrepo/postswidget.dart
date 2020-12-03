@@ -8,19 +8,14 @@ class PostWidget extends StatelessWidget {
   PostWidget(this.post);
   @override
   Widget build(BuildContext context) {
-    //final title = 'Лента';
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: <Widget>[
           Container(
-            //width: 200,
             height: 15,
           ),
           Container(
-            //padding: EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 10),
-            // width: 300,
             height: 280,
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -34,7 +29,9 @@ class PostWidget extends StatelessWidget {
             ),
           ),
           Container(
-            decoration: BoxDecoration(color: Colors.white12),
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(100, 149, 237, 20).withOpacity(0.4),
+            ),
             child: Column(
               children: [
                 Container(
@@ -43,6 +40,7 @@ class PostWidget extends StatelessWidget {
                     post.title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                        fontFamily: 'Tahoma',
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
@@ -54,6 +52,7 @@ class PostWidget extends StatelessWidget {
                     post.text,
                     textAlign: TextAlign.left,
                     style: TextStyle(
+                        fontFamily: 'Tahoma',
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
                         color: Colors.white),
@@ -68,7 +67,7 @@ class PostWidget extends StatelessWidget {
             height: 34,
             child: FavouriteWidget(),
             decoration: BoxDecoration(
-              color: Colors.white12,
+              color: Color.fromRGBO(100, 149, 237, 20).withOpacity(0.4),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(25.0),
                 bottomRight: Radius.circular(25.0),
@@ -90,26 +89,17 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
   bool _isFavorited = false;
   @override
   Widget build(BuildContext context) {
-    return Row(children: <Widget>[
-      Container(
-        margin: const EdgeInsets.only(bottom: 15, right: 10, left: 260),
-        child: IconButton(
-          // tooltip: 'В избранном',
-          icon: (_isFavorited
-              ? Icon(Icons.star, size: 25)
-              : Icon(Icons.star_border, size: 25)),
-          onPressed: _tapFavorite,
-          color: Colors.white,
-        ),
+    return Container(
+      alignment: Alignment.bottomRight,
+      //margin: EdgeInsets.only(bottom: 15, right: 10, left: 260),
+      child: IconButton(
+        icon: (_isFavorited
+            ? Icon(Icons.star, size: 25)
+            : Icon(Icons.star_border, size: 25)),
+        onPressed: _tapFavorite,
+        color: Colors.white,
       ),
-      // SizedBox(
-      //   height: 25,
-      //   child: Container(
-      //     padding: EdgeInsets.only(right: 10, r),
-      //     child: Text('В избранное'),
-      //   ),
-      // ),
-    ]);
+    );
   }
 
   void _tapFavorite() {

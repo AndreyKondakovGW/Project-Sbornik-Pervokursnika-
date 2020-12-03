@@ -4,18 +4,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sbornik_pervokursnika/data/SignFormblock/formblock_bloc.dart';
 import 'package:sbornik_pervokursnika/data/SignInForm/siginform.dart';
 
-class LoginRegestrationPage extends StatelessWidget
-{
+class LoginRegestrationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Вход")),
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+          backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25))),
+          title: Text("Вход")),
       body: Center(
-        child: BlocProvider(
-          create: (context) => FormblockBloc(),
-          child: LoginForm(),
-        )
-      ),
+          child: BlocProvider(
+        create: (context) => FormblockBloc(),
+        child: LoginForm(),
+      )),
     );
   }
 }
