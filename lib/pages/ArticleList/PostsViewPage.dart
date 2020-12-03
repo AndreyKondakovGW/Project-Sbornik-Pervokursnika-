@@ -19,7 +19,7 @@ class ArticleListWidget extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(25),
                   bottomRight: Radius.circular(25))),
-          title: Text('Сборник первокурсника',
+          title: Text('УЧЕБНЫЙ ПРОЦЕСС',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold))),
       body: Container(
