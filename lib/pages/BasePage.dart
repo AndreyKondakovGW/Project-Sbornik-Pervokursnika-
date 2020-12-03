@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sbornik_pervokursnika/pages/LentaPage.dart';
-import 'package:sbornik_pervokursnika/pages/SbornikPageMenu.dart';
-import 'ProfilePage.dart';
-import 'PostsViewPage.dart';
-import 'FacultiesPage.dart';
-import 'FavoritesPage.dart';
 
-//Виджет с навбаром
+import 'Lenta/LentaPage.dart';
+import 'Sbornik/SbornikPageMenu.dart';
+import 'Profile/ProfilePage.dart';
+import 'Faculties/FacultiesPage.dart';
+import 'Favorites/FavoritesPage.dart';
+
+//Базовый виджет с Навбаром
 class NavPage extends StatefulWidget {
   @override
   _NavPageState createState() => _NavPageState();
@@ -17,11 +17,11 @@ class _NavPageState extends State<NavPage> {
   _NavPageState();
 
   final titels = [
-    "Сборник первокурсника",
-    "Избраное",
-    "Лента",
-    "Профиль",
-    "Факультет",
+    'Сборник первокурсника',
+    'Избраное',
+    'Лента',
+    'Профиль',
+    'Факультет',
   ];
 
   final routes = [
