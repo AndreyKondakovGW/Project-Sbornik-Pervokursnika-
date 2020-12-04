@@ -59,6 +59,7 @@ var newarticles = [
   Article(
     title: 'ПРАВА И ОБЯЗАННОСТИ СТУДЕНТА',
     text: '''  
+    Обучающимся предоставляются академические права в различным областях
         ''',
     image1: 'assets/images/prava.jpg',
     image2: 'assets/images/stipendii.jpg',
