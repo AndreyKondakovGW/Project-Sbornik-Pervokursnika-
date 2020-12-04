@@ -8,7 +8,6 @@ class LentaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final title = 'Лента';
     return Center(
       child: Container(
         decoration: BoxDecoration(

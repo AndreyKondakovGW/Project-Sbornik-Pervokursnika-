@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'Lenta/LentaPage.dart';
 import 'Sbornik/SbornikPageMenu.dart';
 import 'Profile/ProfilePage.dart';
@@ -46,6 +46,12 @@ class _NavPageState extends State<NavPage> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(25),
@@ -57,11 +63,18 @@ class _NavPageState extends State<NavPage> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40), topRight: Radius.circular(25))),
-        child: BottomNavigationBar(
+        child: SnakeNavigationBar.color(
+
+          snakeViewColor: Color.fromRGBO(100, 149, 237, 30),
+          selectedItemColor: Colors.white,
+          snakeShape: SnakeShape.circle,
+          unselectedItemColor: Colors.white,
+          showSelectedLabels: true,
+          backgroundColor: Color.fromRGBO(100, 149, 237, 30),
           currentIndex: currentIdex,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.book),
+              icon: Icon(Icons.menu_book),
               label: "Сборник",
               backgroundColor: Color.fromRGBO(100, 149, 237, 30),
             ),
@@ -71,7 +84,7 @@ class _NavPageState extends State<NavPage> {
               backgroundColor: Color.fromRGBO(100, 149, 237, 30),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.note),
+              icon: Icon(Icons.library_books),
               label: "Лента",
               backgroundColor: Color.fromRGBO(100, 149, 237, 30),
             ),

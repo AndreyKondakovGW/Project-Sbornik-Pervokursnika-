@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../Lenta/repository/postrepo.dart';
 import '../Lenta/postswidget.dart';
 
-
 class FavoritesPage extends StatelessWidget {
   final containers = posts.map((post) => PostWidget(post)).toList();
 
@@ -80,6 +79,17 @@ class FavoritesPage extends StatelessWidget {
                               ),
                             ),
                           ],
+                        ),
+                      ),
+                      Container(
+                        height: 34,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(100, 149, 237, 20)
+                              .withOpacity(0.4),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(25.0),
+                            bottomRight: Radius.circular(25.0),
+                          ),
                         ),
                       ),
                     ],
