@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'Pages/ArticleList/PostsViewPage.dart';
-import 'Pages/Login&Regestration/LoginRegistrationpage.dart';
-import 'Pages/Article/ArticleWidget.dart';
-import 'Pages/BasePage.dart';
+import 'presentation/pages/LoginRegistrationpage.dart';
+import 'presentation/pages/BasePage.dart';
+import 'presentation/pages/ArticlePageWidget.dart';
+import 'presentation/pages/PostsViewPage.dart';
 
 void main() {
   runApp(MyApp());
