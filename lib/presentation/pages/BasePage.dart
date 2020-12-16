@@ -16,7 +16,7 @@ class BasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Colors.black26,
+    backgroundColor: Colors.black12,
     appBar: AppBar(
       backgroundColor: Color.fromRGBO(100, 149, 237, 30),
       actions: <Widget>[

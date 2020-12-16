@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../model/api_User.dart';
 import '../request/get_user_body.dart';
 import '../../../domain/errors/LoginandRegestrationErrors.dart';
