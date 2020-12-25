@@ -9,13 +9,39 @@ var arraytegs = [
   TegItem(text: 'ЧГК')
 ];
 
+//import 'ProfilePhoto.dart';
+//import 'ProfileFIO.dart';
+//import 'data/massOfStudents.dart';
+//import 'TegItemWidget.dart';
+//////////////////////////////////////////
+//
+// ГЛАВНЫЙ ВИДЖЕТ СТРАНИЦЫ ПРОФИЛЬ
+// TegItemWidget - ВИДЖЕТ ВЫБОРА ТЕГОВ
+//
+// StudentPhoto - ВИДЖЕТ ДЛЯ ФОТКИ СТУДЕНТА
+// принимает аргументом имя файла в папке ассет
+//
+// ProfileFio - ВИДЖЕТ ДЛЯ ФИО СТУДЕНТА
+// принимает парметр StudentsFIO описанный в файле Student.dart
+//
+/////////////////////////////////////////
 class ProfilePage extends StatelessWidget {
+  // final StudentInfo = StudentsMass.map((post) => ProfileFio(post)).toList();
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              //StudentPhoto(NameImage: 'profilephoto'),
+              //ProfileFio(
+                //studentsFIO: StudentsMass[0],
+              //),
+            ],
+          ),
           Container(
             child: Text('Теги',
               style: TextStyle(
@@ -53,50 +79,13 @@ class TegItemWidget extends StatelessWidget {
               child: Stack(children: [
                 Container(
                   alignment: Alignment.centerLeft,
-                  child: Text(data.text,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16)),
+                  child: Text(data.text),
                 ),
-                CheckWidget(),
-              ]),
+              ],
             ),
           ),
+          ),
         ]),
-      ],
-    );
-  }
-}
-
-class CheckWidget extends StatefulWidget {
-  @override
-  _CheckWidgetState createState() => _CheckWidgetState();
-}
-
-class _CheckWidgetState extends State<CheckWidget> {
-  bool _isCheck = false;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: IconButton(
-        icon: (_isCheck
-            ? Icon(Icons.check_box, size: 25)
-            : Icon(Icons.check_box_outline_blank, size: 25)),
-        onPressed: _tapCheck,
-        color: Colors.white,
-      ),
-    );
-  }
-
-  void _tapCheck() {
-    setState(() {
-      if (_isCheck) {
-        _isCheck = false;
-      } else {
-        _isCheck = true;
-      }
-    });
+      ]);
   }
 }
