@@ -2,6 +2,27 @@ import 'package:flutter/material.dart';
 import '../../domain/modle/TegItem.dart';
 import 'BasePage.dart';
 
+
+class StudentsFIO {
+  //ИМЯ
+  final String firstname;
+  //ФАМИЛИЯ
+  final String lastndname;
+  //ОТЧЕСТВО
+  final String midletname;
+
+  StudentsFIO({this.firstname, this.lastndname, this.midletname});
+
+}
+
+var StudentsMass = [
+StudentsFIO (
+    firstname:'Дмитрий',
+    lastndname:'Швец',
+    midletname:'Владимирович',
+),
+];
+
 var arraytegs = [
   TegItem(text: 'Стипендии'),
   TegItem(text: 'Общежития'),
@@ -36,10 +57,10 @@ class ProfilePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              //StudentPhoto(NameImage: 'profilephoto'),
-              //ProfileFio(
-                //studentsFIO: StudentsMass[0],
-              //),
+              StudentPhoto(NameImage: 'profilephoto'),
+              ProfileFio(
+                studentsFIO: StudentsMass[0],
+              ),
             ],
           ),
           Container(
@@ -88,4 +109,49 @@ class TegItemWidget extends StatelessWidget {
         ]),
       ]);
   }
+}
+
+class StudentPhoto extends StatelessWidget{
+  final String NameImage;
+
+  StudentPhoto({this.NameImage});
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundImage: AssetImage('assets/images/$NameImage.jpg'),
+      radius: 100,
+
+    );
+  }
+}
+
+class ProfileFio extends StatelessWidget{
+
+  final StudentsFIO studentsFIO;
+  TextStyle _style(){
+    return TextStyle(
+        fontFamily: 'Tahoma',
+        fontSize: 16,
+        fontWeight: FontWeight.normal,
+        color: Colors.white
+    );
+  }
+  const ProfileFio({this.studentsFIO});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(studentsFIO.lastndname, style: _style()),
+            Text(studentsFIO.firstname, style: _style()),
+            Text(studentsFIO.midletname, style: _style()),
+          ],
+        ),
+    );
+
+  }
+
 }
