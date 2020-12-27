@@ -11,28 +11,28 @@ class BasePage extends StatelessWidget {
   final Widget body;
   final String titel;
   final Widget navbar;
-  BasePage({this.body,this.titel, this.navbar = null});
+  BasePage({this.body, this.titel, this.navbar = null});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Colors.black26,
-    appBar: AppBar(
-      backgroundColor: Color.fromRGBO(100, 149, 237, 30),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.search),
-          onPressed: () {},
-        ),
-      ],
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(25),
-        bottomRight: Radius.circular(25))),
-      title: Text(titel),
-    ),
-    body: body,
-    bottomNavigationBar: navbar,
+      backgroundColor: Colors.black26,
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(100, 149, 237, 30),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25))),
+        title: Text(titel),
+      ),
+      body: body,
+      bottomNavigationBar: navbar,
     );
   }
 }
@@ -70,10 +70,8 @@ class _NavPageState extends State<NavPage> {
       body: children[currentIdex],
       navbar: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40), topRight: Radius.circular(25)
-          )
-        ),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40), topRight: Radius.circular(25))),
         child: SnakeNavigationBar.color(
           snakeViewColor: Color.fromRGBO(100, 149, 237, 30),
           selectedItemColor: Colors.white,
@@ -114,5 +112,3 @@ class _NavPageState extends State<NavPage> {
     );
   }
 }
-
-
