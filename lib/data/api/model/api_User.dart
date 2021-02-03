@@ -3,7 +3,7 @@ class ApiUser {
   final String password;
   final String email;
 
-  //метод который обрабатывет пришедьшие с бэкэнда данные
-  //(НУЖНО ПЕРЕПИСАТЬ) 
+  ///метод который обрабатывет пришедьшие с бэкэнда данные
+  ///(НУЖНО ПЕРЕПИСАТЬ) 
   ApiUser.fromApi({this.username,this.password,this.email});
 }

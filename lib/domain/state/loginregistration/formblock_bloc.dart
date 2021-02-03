@@ -67,5 +67,20 @@ class FormblockBloc extends Bloc<FormblockEvent,FormblockInitial> {
         }
       }
     }
+    if (event is LogInasGuest)
+    {
+      try{
+        yield FormblockInitial(currstare: LoginandRegestrationState.Waiting);
+        await state.userRepository.LogInasGuest();
+        yield FormblockInitial(currstare: LoginandRegestrationState.Regestration);
+      }on TextExeption catch(e)
+        {
+          yield FormblockInitial(
+            errorrequest: true,
+            errortext: e.text,
+            currstare: LoginandRegestrationState.Regestration,
+          );
+        }
+    }
   }
 }

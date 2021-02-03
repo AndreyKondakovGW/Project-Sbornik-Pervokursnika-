@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import '../domain/state/loginregistration/formblock_bloc.dart';
 import '../domain/modle/FormInput.dart';
 
-
-class LoginWidget extends StatelessWidget {
+class LoginFormWidget extends StatelessWidget {
   final TextEditingController _usernamecontroller = TextEditingController();
   final TextEditingController _paswordcontroller = TextEditingController();
   final state;
   final block;
 
-  LoginWidget({this.state,this.block});
+  LoginFormWidget({this.state, this.block});
   @override
   Widget build(BuildContext context) {
-  return Container(
-    child: Column(
+    return Container(
+        child: Column(
       children: [
-        state.errorrequest? _ErrorWidget(state.errortext) : Container(),
+        state.errorrequest ? _ErrorWidget(state.errortext) : Container(),
         //Инпут для Логина
         InputWiget(
           controler: _usernamecontroller,
@@ -34,124 +33,116 @@ class LoginWidget extends StatelessWidget {
         ),
         RaisedButton(
           color: Color.fromRGBO(100, 149, 237, 30),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           child: const Text(
             'Вход',
             style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.white
-            ),
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           onPressed: () {
             block.add(SendSignInForm(
-              username: _usernamecontroller.text,
-              password: _paswordcontroller.text)
-            );
+                username: _usernamecontroller.text,
+                password: _paswordcontroller.text));
           },
         ),
         RaisedButton(
           color: Color.fromRGBO(100, 149, 237, 30),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30)
-          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           child: const Text(
-            'Регистрация',
+            'Войти как гость',
             style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.white
-            ),
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           onPressed: () {
-            block.add(StartRegestration());
-          }
+            block.add(LogInasGuest());
+          },
         ),
+        RaisedButton(
+            color: Color.fromRGBO(100, 149, 237, 30),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            child: const Text(
+              'Регистрация',
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+            onPressed: () {
+              block.add(StartRegestration());
+            }),
       ],
     ));
   }
 }
 
-class RegistrationWidget extends StatelessWidget {
+class RegistrationFormWidget extends StatelessWidget {
   final TextEditingController _usernamecontroller = TextEditingController();
   final TextEditingController _paswordcontroller = TextEditingController();
   final TextEditingController _emailcontroller = TextEditingController();
   final state;
   final block;
-  
-  RegistrationWidget({this.state,this.block});
+
+  RegistrationFormWidget({this.state, this.block});
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: [
-          state.errorrequest? _ErrorWidget(state.errortext) : Container(),
-          //Инпут для Логина
-          InputWiget(
-            controler: _usernamecontroller,
-            titel: state.siginUpusername.titel,
-            lable: state.siginUpusername.label,
-            key1: state.siginUpusername.key,
-            validator: state.siginUpusername.validator,
+        child: Column(children: [
+      state.errorrequest ? _ErrorWidget(state.errortext) : Container(),
+      //Инпут для Логина
+      InputWiget(
+        controler: _usernamecontroller,
+        titel: state.siginUpusername.titel,
+        lable: state.siginUpusername.label,
+        key1: state.siginUpusername.key,
+        validator: state.siginUpusername.validator,
+      ),
+      //Инпут для имайла
+      InputWiget(
+        controler: _emailcontroller,
+        titel: state.siginUpemail.titel,
+        lable: state.siginUpemail.label,
+        key1: state.siginUpemail.key,
+        validator: state.siginUpemail.validator,
+      ),
+      //Инпут для пароля
+      InputWiget(
+        controler: _paswordcontroller,
+        titel: state.siginUppassword.titel,
+        lable: state.siginUppassword.label,
+        key1: state.siginUppassword.key,
+        validator: state.siginUppassword.validator,
+      ),
+      RaisedButton(
+          color: Color.fromRGBO(100, 149, 237, 30),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          child: const Text(
+            'Зарегистрироваться',
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          //Инпут для имайла
-          InputWiget(
-            controler: _emailcontroller,
-            titel: state.siginUpemail.titel,
-            lable: state.siginUpemail.label,
-            key1: state.siginUpemail.key,
-            validator: state.siginUpemail.validator,
-          ),
-          //Инпут для пароля
-          InputWiget(
-            controler: _paswordcontroller,
-            titel: state.siginUppassword.titel,
-            lable: state.siginUppassword.label,
-            key1: state.siginUppassword.key,
-            validator: state.siginUppassword.validator,
-          ),
-          RaisedButton(
-            color: Color.fromRGBO(100, 149, 237, 30),
-            shape: RoundedRectangleBorder(
-              borderRadius:BorderRadius.circular(30)
-            ),
-            child: const Text(
-              'Зарегистрироваться',
-              style: TextStyle(
-                fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white
-              ),
-            ),
-            onPressed: () {
-              block.add(SendSignUpForm(
+          onPressed: () {
+            block.add(SendSignUpForm(
                 username: _usernamecontroller.text,
                 password: _paswordcontroller.text,
-                email: _emailcontroller.text)
-              );
-            }
+                email: _emailcontroller.text));
+          }),
+      RaisedButton(
+          color: Color.fromRGBO(100, 149, 237, 30),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          child: const Text(
+            'Вход',
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          RaisedButton(
-            color: Color.fromRGBO(100, 149, 237, 30),
-            shape: RoundedRectangleBorder(
-              borderRadius:BorderRadius.circular(30)
-            ),
-            child: const Text(
-              'Вход',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.white
-              ),
-            ),
-            onPressed: () {
-              block.add(StartLogin());
-            }
-          ),
-        ]
-      )
-    );
+          onPressed: () {
+            block.add(StartLogin());
+          }),
+    ]));
   }
 }
 
@@ -208,8 +199,7 @@ class InputWiget extends StatelessWidget {
   }
 }
 
-
-//Виждет загрузчика
+//Виждет виджет сообщения об ошибке
 class _ErrorWidget extends StatelessWidget {
   final String text;
 
@@ -219,10 +209,7 @@ class _ErrorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 15, bottom: 10),
-      child: Text(text,
-        style: TextStyle(
-        color: Colors.red, fontSize: 16)
-      ),
+      child: Text(text, style: TextStyle(color: Colors.red, fontSize: 16)),
     );
   }
 }

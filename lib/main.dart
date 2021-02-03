@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'presentation/pages/LoginRegistrationpage.dart';
-import 'presentation/pages/BasePage.dart';
+import 'presentation/pages/HomePage.dart';
 import 'presentation/pages/ArticlePageWidget.dart';
 import 'presentation/pages/PostsViewPage.dart';
 
@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/home',
+      initialRoute: '/login',
       routes: {
         '/login': (BuildContext context) => LoginRegestrationPage(),
-        '/home': (BuildContext context) => NavPage(),
+        '/home': (BuildContext context) => HomePage(),
 
 
         '/block/0': (BuildContext context) => ArticleListWidget(),

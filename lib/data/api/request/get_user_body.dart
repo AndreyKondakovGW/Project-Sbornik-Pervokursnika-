@@ -1,5 +1,7 @@
 import 'package:meta/meta.dart';
 
+//Здесь преведены классы создающие тела запросов для бэка при Входе/Регистрации
+
 class GetUserLoginBody{
   final String username;
   final String password;

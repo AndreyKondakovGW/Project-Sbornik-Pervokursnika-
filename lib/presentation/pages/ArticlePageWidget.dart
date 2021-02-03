@@ -25,6 +25,7 @@ class ArticlePageWidget extends StatelessWidget {
                   margin:
                       EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 0),
                   height: 400,
+                  //Заменить На HeroPhotoWidjet
                   decoration: BoxDecoration(
                       image: DecorationImage(
                         image: Image.asset(article.image1).image,

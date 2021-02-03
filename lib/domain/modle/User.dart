@@ -16,4 +16,5 @@ class User
     //@required this.photo,
   });
   static const empty = User(username: null,password:'', email: '', /*id: '', photo: null*/);
+  static const guest = User(username: 'Guest',password: '123',email: '');
 }

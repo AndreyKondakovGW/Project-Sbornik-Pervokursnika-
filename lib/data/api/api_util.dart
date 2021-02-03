@@ -1,3 +1,10 @@
+import 'package:sbornik_pervokursnika/data/api/request/get_lenta_request_body.dart';
+import 'package:sbornik_pervokursnika/data/api/service/Lenta_service.dart';
+import 'package:sbornik_pervokursnika/data/mapper/Post_mapper.dart';
+import 'package:sbornik_pervokursnika/data/mapper/Teg_mapper.dart';
+import 'package:sbornik_pervokursnika/domain/modle/Teg.dart';
+import 'package:sbornik_pervokursnika/domain/modle/post.dart';
+
 import 'request/get_user_body.dart';
 import '../mapper/User_mapper.dart';
 import 'service/User_service.dart';
@@ -5,10 +12,17 @@ import '../../domain/modle/User.dart';
 import 'package:meta/meta.dart';
 
 class ApiUtil {
+  ///Временный сервис для работы без бэка
   final UserServicePlug _userService;
+
+  ///Временный сервис для работы без бэка
+  final LentaServicePlug _lentaService;
   //сменить на UserServiceMain _userService; когда будет готов бэк
 
-  ApiUtil(this._userService);
+  ApiUtil(this._userService, this._lentaService);
+
+
+  //Функции userService
 
   Future<User> Login({
     @required String usename,
@@ -44,4 +58,45 @@ class ApiUtil {
     await _userService.LogOut();
   }
 
+  //Функции lentaService
+
+  Future<List<Teg>> GetTegs()
+  async{
+    print("GetTegs");
+    final result = await _lentaService.GetTegs();
+    return TegMapper.fromApi(result);
+  }
+
+  Future<void> AddTeg(String name)
+  async{
+    await _lentaService.AddTeg(name);
+  }
+
+  Future<void> RemoveTeg(String name)
+  async{
+    await _lentaService.RemoveTeg(name);
+  }
+
+  Future<List<Post>> GetPosts(List<Teg> tegs)
+  async{
+    print("GetPosts");
+    final body = GetPostRequestBody(tegs: tegs);
+    try{
+      final result = await _lentaService.GetPosts(body);
+      return PostMapper.fromApi(result);
+    }catch(e)
+    {
+      print(e);
+    }
+  }
+/*
+  Future<void> AddtoFavorites(String postid)
+  async{
+    await _lentaService.AddtoFavorites(postid);
+  }
+
+  Future<void> RemoveFavorites(String postid)
+  async{
+    await _lentaService.AddtoFavorites(postid);
+  }*/
 }

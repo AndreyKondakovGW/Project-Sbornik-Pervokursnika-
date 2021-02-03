@@ -5,7 +5,7 @@ import '../../../domain/errors/LoginandRegestrationErrors.dart';
 //Сервис для решистрации входа пользователей через бэкэнд
 //Будет написан когда будет известно АПИ сервера
 class UserServiceMain {
-  static const _BASE_URL = '';
+  static const BASE_URL = '';
   /*Future<ApiUser> TrytoLogin(GetUserLoginBody body) async {
     //запрос на сервер
     final response = awit ...(

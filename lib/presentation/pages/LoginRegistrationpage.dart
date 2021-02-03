@@ -34,12 +34,12 @@ class LoginBloc extends StatelessWidget{
     builder: (context, state){
       switch (state.currstare) {
         case LoginandRegestrationState.Login:
-          return LoginWidget(
+          return LoginFormWidget(
             block: block,
             state: state,
           );
         case LoginandRegestrationState.Regestration:
-          return RegistrationWidget(
+          return RegistrationFormWidget(
             block: block,
             state: state,
           ); 

@@ -28,3 +28,6 @@ class SendSignUpForm extends FormblockEvent
 
   SendSignUpForm({this.username,this.password,this.email});
 }
+
+class LogInasGuest extends FormblockEvent
+{}
