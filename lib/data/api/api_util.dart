@@ -77,11 +77,12 @@ class ApiUtil {
     await _lentaService.RemoveTeg(name);
   }
 
-  Future<List<Post>> GetPosts(List<Teg> tegs)
+  Future<List<Post>> GetPosts(List<Teg> tegs, DateTime timeofLastPost)
   async{
-    print("GetPosts");
-    final body = GetPostRequestBody(tegs: tegs);
+    print("GetPosts $timeofLastPost");
+    final body = GetPostRequestBody(tegs: tegs, time: timeofLastPost);
     try{
+      print(body.time);
       final result = await _lentaService.GetPosts(body);
       return PostMapper.fromApi(result);
     }catch(e)

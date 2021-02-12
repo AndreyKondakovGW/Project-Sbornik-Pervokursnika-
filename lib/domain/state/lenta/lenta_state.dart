@@ -1,31 +1,49 @@
 part of 'lenta_bloc.dart';
 
 @immutable
-abstract class LentaState {}
+abstract class LentaState {
+  LentaRepository lentaRepository = RepositoryModule.lentaRepository();
+}
 
-class LentaInitial extends LentaState {
-  LentaRepository lentaRepository;
+class LentaUninitialized extends LentaState {}
 
-  List<Teg> allTegs = List<Teg>(0); //все доступные категории
+class PostError extends LentaState {
+  String message;
 
-  List<Post> postStore =List<Post>(0);
-  bool waitingresponce = false;
-  //List<String> myTags; //выбранные категории
+  PostError(this.message);
+}
 
-  LentaInitial({
-    this.waitingresponce = false,
+class EmptyLenta extends LentaState{}
+
+class LentaPostLoaded extends LentaState {
+
+  List<Teg> allTegs;
+  List<Post> postStore;
+  bool hasReachedMax;
+
+  LentaPostLoaded({
+    this.hasReachedMax,
     this.allTegs,
     this.postStore,
-    })
-  {
-    this.lentaRepository = RepositoryModule.lentaRepository();
+  }){
+    this.postStore.sort((p1,p2) => p1.time.compareTo(p2.time));
   }
 
-  LentaInitial addPosts({
+  LentaPostLoaded copyWith({
+    List<Post> posts,
+    bool hasReachedMax,
+  }) {
+    return LentaPostLoaded(
+      postStore: posts ?? this.postStore,
+      hasReachedMax: hasReachedMax ?? this.hasReachedMax,
+    );
+  }
+
+  LentaPostLoaded addPosts({
     posts,
     })
   {
-    return LentaInitial(
+    return LentaPostLoaded(
       allTegs: this.allTegs,
       postStore: this.postStore + posts,
     );

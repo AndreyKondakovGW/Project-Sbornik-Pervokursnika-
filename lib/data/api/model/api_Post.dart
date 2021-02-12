@@ -4,11 +4,14 @@ class ApiPost {
   final String image;
   final String id;
   final List<String> tegs;
+  final DateTime timeofcreation;
+  
+    ///метод который обрабатывет пришедьшие с бэкэнда данные
+    ///(НУЖНО ПЕРЕПИСАТЬ в виде ApiPost.fromApi(JASON))  
+    ApiPost.fromApi({this.id,this.title,this.text,this.image,this.tegs,this.timeofcreation});
+  }
+  
 
-  ///метод который обрабатывет пришедьшие с бэкэнда данные
-  ///(НУЖНО ПЕРЕПИСАТЬ в виде ApiPost.fromApi(JASON))  
-  ApiPost.fromApi({this.id,this.title,this.text,this.image,this.tegs});
-}
 
 class ApiPostList {
   final List<ApiPost> posts;
@@ -16,3 +19,4 @@ class ApiPostList {
   ///(НУЖНО ПЕРЕПИСАТЬ в виде ApiPostList.fromApi(JASON)) 
   ApiPostList.fromApi({this.posts});
 }
+

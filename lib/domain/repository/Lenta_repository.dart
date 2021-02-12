@@ -14,7 +14,7 @@ abstract class LentaRepository{
   Future<List<Teg>> RemoveTeg(String name);
 
   ///Загружает посты ленты с бэкэнда
-  Future<List<Post>> GetPosts();
+  Future<List<Post>> GetPosts(DateTime timeofLastPost);
   
   ///добовляет пост в избраное
   //Future<void> AddtoFavorites(String postid);

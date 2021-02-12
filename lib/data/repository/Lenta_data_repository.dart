@@ -11,7 +11,11 @@ class LentaDataRepository extends LentaRepository{
   LentaDataRepository(this._apiUtil);
   @override
   Future<List<Teg>> GetAllTegs()async{
-    return _tegs.length == 0? await _apiUtil.GetTegs():_tegs;
+    if (_tegs.length == 0)
+    {
+      _tegs = await _apiUtil.GetTegs();
+    }
+    return _tegs;
   }
 
   @override
@@ -28,8 +32,8 @@ class LentaDataRepository extends LentaRepository{
   }
 
   @override
-  Future<List<Post>> GetPosts()async{
-    return await _apiUtil.GetPosts(_tegs);
+  Future<List<Post>> GetPosts(DateTime timeofLastPost)async{
+    return await _apiUtil.GetPosts(_tegs.where((element) => element.selected).toList(),timeofLastPost);
   }
 /*
   @override

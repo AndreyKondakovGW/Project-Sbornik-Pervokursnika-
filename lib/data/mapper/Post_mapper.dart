@@ -7,6 +7,7 @@ Post postfromApi(ApiPost post)
       title: post.title,
       text: post.text,
       image: post.image,
+      time: post.timeofcreation,
     );
 }
 

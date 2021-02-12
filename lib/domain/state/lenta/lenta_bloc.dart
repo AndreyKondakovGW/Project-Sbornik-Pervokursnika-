@@ -11,44 +11,71 @@ import '../../../internal/dependencies/repository_module.dart';
 part 'lenta_event.dart';
 part 'lenta_state.dart';
 
-class LentaBloc extends Bloc<LentaEvent, LentaInitial> {
-  LentaBloc() : super(LentaInitial(allTegs: [], postStore: []));
+class LentaBloc extends Bloc<LentaEvent, LentaState> {
+  LentaBloc() : super(LentaUninitialized());
 
   @override
-  Stream<LentaInitial> mapEventToState(
+  LentaState get initialState => LentaUninitialized();
+
+  @override
+  Stream<LentaState> mapEventToState(
     LentaEvent event,
   ) async* {
-    if (event is DownloadInitialData)
+    if (event is AddPosts && !_hasReachedMax(state))
     {
-      print("DownloadInitialData");
-      yield LentaInitial(waitingresponce: true, allTegs: state.allTegs, postStore: state.postStore);
-      final tegs = await state.lentaRepository.GetAllTegs();
-      final posts =  await state.lentaRepository.GetPosts();
-      yield LentaInitial(waitingresponce: false, allTegs: tegs, postStore: posts);
+      try{
+        if (state is LentaUninitialized)
+        {
+          final tegs = await state.lentaRepository.GetAllTegs();
+          print("dd");
+          final posts =  await state.lentaRepository.GetPosts(null);
+          print(posts.length);
+          yield LentaPostLoaded(hasReachedMax: false, allTegs: tegs, postStore: posts);
+          return;
+        }
+        if (state is LentaPostLoaded)
+        {
+          final curstate = state as LentaPostLoaded;
+          final posts = await state.lentaRepository.GetPosts(curstate.postStore.last.time);
+          if (posts.length == 0){
+            yield curstate.copyWith(hasReachedMax: true);
+          }
+          else{
+            yield LentaPostLoaded(hasReachedMax: false, postStore: curstate.postStore + posts, allTegs: curstate.allTegs);
+          }
+        }
+      }catch(_)
+      {
+        yield PostError("");
+      }
     }
     if (event is AddTeg)
     {
-      print("AddTeg");
-      yield LentaInitial(waitingresponce: true, allTegs: state.allTegs, postStore: state.postStore);
+      print("add teg ${event.teg}");
       final tegs = await state.lentaRepository.AddTeg(event.teg);
-      final posts =  await state.lentaRepository.GetPosts();
-      yield LentaInitial(waitingresponce: false, allTegs: tegs, postStore: posts);
+      final posts =  await state.lentaRepository.GetPosts(null);
+      final curstate = state as LentaPostLoaded;
+      yield posts.length == 0?
+            curstate.copyWith(hasReachedMax: true, posts: posts):
+            LentaPostLoaded(
+              hasReachedMax: false, postStore: posts, allTegs: tegs
+            );
     }
     if (event is RemoveTeg)
     {
-      print("RemoveTeg");
-      yield LentaInitial(waitingresponce: true, allTegs: state.allTegs, postStore: state.postStore);
+      print("remove teg ${event.teg}");
       final tegs = await state.lentaRepository.RemoveTeg(event.teg);
-      final posts =  await state.lentaRepository.GetPosts();
-      yield LentaInitial(waitingresponce: false, allTegs: tegs, postStore: posts);
+      final posts =  await state.lentaRepository.GetPosts(null);
+      final curstate = state as LentaPostLoaded;
+      yield posts.length == 0?
+            curstate.copyWith(hasReachedMax: true, posts: posts):
+            LentaPostLoaded(
+              hasReachedMax: false, postStore: posts, allTegs: tegs
+            );
     }
-    if (event is AddPosts)
-    {
-      print("AddPosts");
-      //yield LentaInitial(waitingresponce: true, allTegs: state.allTegs, postStore: state.postStore);
-      final posts =  await state.lentaRepository.GetPosts();
-      state.postStore += posts;
-      //yield state.addPosts(posts: posts);
-    }
+  }
+
+  bool _hasReachedMax(LentaState state){
+    return state is LentaPostLoaded && state.hasReachedMax;
   }
 }

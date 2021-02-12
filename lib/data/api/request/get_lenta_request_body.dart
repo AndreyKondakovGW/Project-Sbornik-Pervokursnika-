@@ -6,7 +6,8 @@ import 'package:sbornik_pervokursnika/domain/modle/Teg.dart';
 class GetPostRequestBody
 {
   final List<Teg> tegs;
-  GetPostRequestBody({@required this.tegs});
+  DateTime time;
+  GetPostRequestBody({@required this.tegs, @required this.time});
   
   //Метод формирующий JASON дял отправки на бэк
   //Реализовать когда будет известно АПИ
