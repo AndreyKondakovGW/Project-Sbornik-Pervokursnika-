@@ -16,15 +16,41 @@ class BasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          //Colors.white,
-          //Color.fromRGBO(244, 239, 229, 10),
-          Color.fromRGBO(45, 45, 45, 10),
+// <<<<<<< HEAD
+//       backgroundColor:
+//           //Colors.white,
+//           //Color.fromRGBO(244, 239, 229, 10),
+//           Color.fromRGBO(45, 45, 45, 10),
+//       appBar: AppBar(
+//         backgroundColor:
+//             //Color.fromRGBO(244, 239, 229, 30),
+//             //Color.fromRGBO(30, 30, 30, 30), vk
+//             Color.fromRGBO(100, 149, 237, 30),
+//         actions: <Widget>[
+//           IconButton(
+//             icon: Icon(Icons.search),
+//             onPressed: () {},
+//           ),
+//         ],
+//         shape: RoundedRectangleBorder(
+//             borderRadius: BorderRadius.only(
+//                 bottomLeft: Radius.circular(25),
+//                 bottomRight: Radius.circular(25))),
+//         title: Text(
+//           titel,
+//           style: TextStyle(
+//               fontFamily: 'Tahoma',
+//               fontSize: 20,
+//               fontWeight: FontWeight.bold,
+//               color: Colors.white),
+//         ),
+//       ),
+//       body: body,
+//       bottomNavigationBar: navbar,
+// =======
+      backgroundColor: Colors.black12,
       appBar: AppBar(
-        backgroundColor:
-            //Color.fromRGBO(244, 239, 229, 30),
-            //Color.fromRGBO(30, 30, 30, 30), vk
-            Color.fromRGBO(100, 149, 237, 30),
+        backgroundColor: Color.fromRGBO(100, 149, 237, 30),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -35,14 +61,7 @@ class BasePage extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(25),
                 bottomRight: Radius.circular(25))),
-        title: Text(
-          titel,
-          style: TextStyle(
-              fontFamily: 'Tahoma',
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white),
-        ),
+        title: Text(titel),
       ),
       body: body,
       bottomNavigationBar: navbar,
@@ -90,7 +109,6 @@ class _NavPageState extends State<NavPage> {
               //Color.fromRGBO(244, 239, 229, 10),
               //Color.fromRGBO(30, 30, 30, 10),
               Color.fromRGBO(100, 149, 237, 30),
-          selectedItemColor: Colors.white,
           snakeShape: SnakeShape.circle,
           unselectedItemColor: Colors.white,
           showSelectedLabels: true,

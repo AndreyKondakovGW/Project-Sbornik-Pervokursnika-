@@ -1,8 +1,7 @@
 import 'package:meta/meta.dart';
 
 //Класс пользователя
-class User
-{
+class User {
   final String username;
   final String password;
   final String email;
@@ -15,5 +14,10 @@ class User
     //@required this.id,
     //@required this.photo,
   });
-  static const empty = User(username: null,password:'', email: '', /*id: '', photo: null*/);
+  static const empty = User(
+    username: null,
+    password: '',
+    email: '', /*id: '', photo: null*/
+  );
+  static const guest = User(username: 'Guest', password: '123', email: '');
 }

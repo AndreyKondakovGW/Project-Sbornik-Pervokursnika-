@@ -4,6 +4,10 @@ class ApiUser {
   final String email;
 
   //метод который обрабатывет пришедьшие с бэкэнда данные
-  //(НУЖНО ПЕРЕПИСАТЬ) 
-  ApiUser.fromApi({this.username,this.password,this.email});
+  //(НУЖНО ПЕРЕПИСАТЬ)
+
+  ///метод который обрабатывет пришедьшие с бэкэнда данные
+  ///(НУЖНО ПЕРЕПИСАТЬ)
+
+  ApiUser.fromApi({this.username, this.password, this.email});
 }

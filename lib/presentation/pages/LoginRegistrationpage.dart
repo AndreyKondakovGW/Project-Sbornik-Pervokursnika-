@@ -12,37 +12,35 @@ class LoginRegestrationPage extends StatelessWidget {
     return BasePage(
       titel: "Вход",
       body: Center(
-        child: BlocProvider(
-          create: (context) => FormblockBloc(),
-          child: LoginBloc(),
-        )
-      ),
+          child: BlocProvider(
+        create: (context) => FormblockBloc(),
+        child: LoginBloc(),
+      )),
     );
   }
 }
 
-class LoginBloc extends StatelessWidget{
+class LoginBloc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FormblockBloc block = BlocProvider.of(context);
     return BlocConsumer<FormblockBloc, FormblockInitial>(
-      listener: (context, state) {
+        listener: (context, state) {
       if (state.userRepository.GetCurrentUser() != null) {
         Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
       }
-    },
-    builder: (context, state){
+    }, builder: (context, state) {
       switch (state.currstare) {
         case LoginandRegestrationState.Login:
-          return LoginWidget(
+          return LoginFormWidget(
             block: block,
             state: state,
           );
         case LoginandRegestrationState.Regestration:
-          return RegistrationWidget(
+          return RegistrationFormWidget(
             block: block,
             state: state,
-          ); 
+          );
         case LoginandRegestrationState.Waiting:
           return WaitingWidget();
         default:

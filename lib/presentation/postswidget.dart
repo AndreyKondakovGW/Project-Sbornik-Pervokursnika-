@@ -20,6 +20,8 @@ class PostWidget extends StatelessWidget {
           Container(
             height: 280,
             decoration: BoxDecoration(
+              //Заменить На HeroPhotoWidjet
+
               image: DecorationImage(
                 image: Image.asset(post.image).image,
                 fit: BoxFit.fill,

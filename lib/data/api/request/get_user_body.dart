@@ -1,6 +1,8 @@
 import 'package:meta/meta.dart';
 
-class GetUserLoginBody{
+//Здесь преведены классы создающие тела запросов для бэка при Входе/Регистрации
+
+class GetUserLoginBody {
   final String username;
   final String password;
   GetUserLoginBody({
@@ -12,14 +14,14 @@ class GetUserLoginBody{
   //Реализовать когда будет известно АПИ
   Map<String, dynamic> toApi() {
     return {
-      'name' : username,
-      'pass' : password,
-      'formatted' : 0,
+      'name': username,
+      'pass': password,
+      'formatted': 0,
     };
   }
 }
 
-class GetUserRegistrBody{
+class GetUserRegistrBody {
   final String username;
   final String password;
   final String email;
@@ -33,10 +35,10 @@ class GetUserRegistrBody{
   //Реализовать когда будет известно АПИ
   Map<String, dynamic> toApi() {
     return {
-      'name' : username,
-      'pass' : password,
-      'email' :email,
-      'formatted' : 0,
+      'name': username,
+      'pass': password,
+      'email': email,
+      'formatted': 0,
     };
   }
 }
