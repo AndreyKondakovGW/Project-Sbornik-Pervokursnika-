@@ -17,27 +17,40 @@ class PostWidget extends StatelessWidget {
           Container(
             height: 15,
           ),
-          Container(
-            height: 280,
-            decoration: BoxDecoration(
-              //Заменить На HeroPhotoWidjet
-
-              image: DecorationImage(
-                image: Image.asset(post.image).image,
-                fit: BoxFit.fill,
+          //HeroWidget(imagtag: ..., img: ...),
+          GestureDetector(
+              child: Hero(
+                tag: 'photo' + post.title,
+                child: Image.asset(post.image),
               ),
-              //borderRadius: BorderRadius.only(
-              //topLeft: Radius.circular(25.0),
-              // topRight: Radius.circular(25.0),
-              // ),
-            ),
-          ),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return DetailScreen(
+                      postTag: 'photo' + post.title, postImage: post.image);
+                }));
+              }
+              // Container(
+              //   height: 280,
+              //   decoration: BoxDecoration(
+              //     //Заменить На HeroPhotoWidjet
+
+              //     image: DecorationImage(
+              //       image: Image.asset(post.image).image,
+              //       fit: BoxFit.fill,
+              //     ),
+              //     //borderRadius: BorderRadius.only(
+              //     //topLeft: Radius.circular(25.0),
+              //     // topRight: Radius.circular(25.0),
+              //     // ),
+              //   ),
+              // ),),
+              ),
           Container(
             decoration: BoxDecoration(
               color:
                   //Colors.white
                   //Color.fromRGBO(30, 30, 30, 10) vk
-                  Color.fromRGBO(43, 58, 89, 20).withOpacity(0.9),
+                  Color.fromRGBO(50, 50, 51, 20).withOpacity(0.9),
             ),
             child: Column(
               children: [
@@ -54,17 +67,24 @@ class PostWidget extends StatelessWidget {
                 //   ),
                 // ),
                 Container(
-                  padding: EdgeInsets.only(right: 10, left: 10),
+                  padding: EdgeInsets.only(right: 10, left: 10, top: 10),
                   child: ExpandablePanel(
-                    header: Text(post.title),
+                    iconColor: Colors.white, //не удалять
+                    header: Text(
+                      post.title,
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                      textAlign: TextAlign.left,
+                    ),
                     collapsed: Text(
                       post.text,
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                       softWrap: true,
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                     ),
                     expanded: Text(
                       post.text,
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                       softWrap: true,
                     ),
                     tapHeaderToExpand: true,
@@ -87,7 +107,7 @@ class PostWidget extends StatelessWidget {
             height: 34,
             child: FavouriteWidget(),
             decoration: BoxDecoration(
-              color: Color.fromRGBO(43, 58, 89, 20).withOpacity(0.9),
+              color: Color.fromRGBO(50, 50, 51, 20).withOpacity(0.9),
               //Colors.white,
               //Color.fromRGBO(30, 30, 30, 10)
               //Color.fromRGBO(100, 149, 237, 20).withOpacity(0.4),
@@ -113,7 +133,8 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.bottomRight,
+      padding: EdgeInsets.only(bottom: 10),
+      alignment: Alignment.centerRight,
       //margin: EdgeInsets.only(bottom: 15, right: 10, left: 260),
       child: IconButton(
         icon: (_isFavorited
@@ -121,6 +142,7 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
             : Icon(Icons.star_border, size: 25)),
         onPressed: _tapFavorite,
         color: Colors.white,
+        padding: EdgeInsets.only(bottom: 5),
       ),
     );
   }
@@ -133,5 +155,29 @@ class _FavouriteWidgetState extends State<FavouriteWidget> {
         _isFavorited = true;
       }
     });
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  final String postTag;
+  final String postImage;
+  DetailScreen({this.postTag, this.postImage});
+
+  @override
+  //Duration get transitionDuration => const Duration(milliseconds: 1000);
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GestureDetector(
+        child: Center(
+          child: Hero(
+            tag: this.postTag,
+            child: Image.asset(postImage),
+          ),
+        ),
+        onTap: () {
+          Navigator.pop(context);
+        },
+      ),
+    );
   }
 }
