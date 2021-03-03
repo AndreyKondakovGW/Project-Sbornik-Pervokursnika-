@@ -13,11 +13,6 @@ class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
-        //height: MediaQuery.of(context).size.height,
-        child: Container(
-      //reverse: false,
-      //scrollDirection: Axis.vertical,
       child: Column(
         children: [
           state.errorrequest ? _ErrorWidget(state.errortext) : Container(),
@@ -45,7 +40,7 @@ class LoginWidget extends StatelessWidget {
               'Вход',
               style: TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  //fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
             onPressed: () {
@@ -60,17 +55,14 @@ class LoginWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30)),
               child: const Text(
                 'Регистрация',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                style: TextStyle(fontSize: 16, color: Colors.white),
               ),
               onPressed: () {
                 block.add(StartRegestration());
               }),
         ],
       ),
-    ));
+    );
   }
 }
 
@@ -117,8 +109,7 @@ class RegistrationWidget extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           child: const Text(
             'Зарегистрироваться',
-            style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(fontSize: 16, color: Colors.white),
           ),
           onPressed: () {
             block.add(SendSignUpForm(
@@ -132,8 +123,7 @@ class RegistrationWidget extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           child: const Text(
             'Вход',
-            style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(fontSize: 16, color: Colors.white),
           ),
           onPressed: () {
             block.add(StartLogin());
@@ -155,43 +145,38 @@ class InputWiget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.all(15),
-        decoration: BoxDecoration(
-            color: Color.fromRGBO(100, 149, 237, 30),
-            borderRadius: BorderRadius.all(Radius.circular(20))),
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              child: Text(
-                titel,
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.all(10),
+          child: Text(
+            titel,
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.all(10),
+          padding: EdgeInsets.all(5),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          child: Form(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            key: key1,
+            child: TextFormField(
+              controller: controler,
+              validator: validator,
+              decoration: InputDecoration(
+                //alignLabelWithHint: false,
+                labelText: lable,
+                helperText: '',
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                  color: Color.fromRGBO(224, 255, 255, 80),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              child: Form(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                key: key1,
-                child: TextFormField(
-                  controller: controler,
-                  validator: validator,
-                  decoration: InputDecoration(
-                    labelText: lable,
-                    helperText: '',
-                  ),
-                ),
-              ),
-            )
-          ],
-        ));
+          ),
+        )
+      ],
+    );
   }
 }
 
